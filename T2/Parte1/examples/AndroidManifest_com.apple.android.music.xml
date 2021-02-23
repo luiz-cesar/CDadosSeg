@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:sharedUserId="com.apple.android" package="com.apple.android.music" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <permission android:name="com.apple.android.music.UserInfoContentProvider.permission" android:protectionLevel="signature"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:launchMode="singleTask" android:name="com.apple.android.music.AppleMusicApplication" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.onboarding.activities.SplashActivity" android:screenOrientation="behind" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.apple.android.music.common.activity.UriHandlerActivity" android:screenOrientation="behind" android:theme="@style/SplashTheme">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="applemusic" android:pathPattern="/.*\\/authenticate-v*?.*" android:scheme="musicsdk"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/artist/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/album/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/playlist/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/post/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/curator/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/radio/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/collection/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/music-video/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/station/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/activity/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/charts/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewGrouping/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewMultiRoom/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewGenre/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/foryou" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/for-you" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/new" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/video" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/playlists" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/charts" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/applemusicradio" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/newmusic" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/browse" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/browse/*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/connect" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/mymusic" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/library" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/radio" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/radio/*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/beats1" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/subscribe" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/individual" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/family" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/musicrenew" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/studentSubscriptionOffers" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/student" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewMultiRoom/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewGrouping/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewArtist/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewGenre/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/collection/.*" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/deeplink" android:scheme="http"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/artist/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/album/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/playlist/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/post/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/curator/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/radio/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/collection/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/music-video/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/station/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/activity/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/charts/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewGrouping/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewMultiRoom/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewGenre/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/viewArtist/.*" android:scheme="https"/>
+                <data android:host="se2.itunes.apple.com" android:pathPattern="/.*\\/socialProfile/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/socialProfile/.*" android:scheme="https"/>
+                <data android:host="se2.itunes.apple.com" android:pathPattern="/.*\\/profile/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/.*\\/profile/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/foryou" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/for-you" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/new" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/video" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/playlists" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/charts" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/applemusicradio" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/newmusic" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/browse" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/browse/*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/library" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/connect" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/mymusic" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/radio" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/radio/*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/beats1" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/subscribe" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/individual" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/family" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/musicrenew" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/studentSubscriptionOffers" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewMultiRoom/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewGrouping/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewGenre/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewBrand/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/viewArtist/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/collection/.*" android:scheme="https"/>
+                <data android:host="se2.itunes.apple.com" android:pathPrefix="/socialProfile/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/socialProfile/.*" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/carrier" android:scheme="https"/>
+                <data android:host="itunes.apple.com" android:pathPrefix="/deeplink" android:scheme="https"/>
+                <data android:host="search.itunes.apple.com" android:pathPrefix="/WebObjects/MZContentLink.woa/wa/link?app=music*" android:scheme="https"/>
+                <data android:host="itun.es" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="itun.es" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="setup.icloud.com" android:pathPattern="/email/.*" android:scheme="http"/>
+                <data android:host="setup.icloud.com" android:pathPattern="/email/.*" android:scheme="https"/>
+                <data android:host="setup.icloud.com" android:pathPattern="/family/messages/.*" android:scheme="http"/>
+                <data android:host="setup.icloud.com" android:pathPattern="/family/messages/.*" android:scheme="https"/>
+                <data android:host="music.apple.com" android:scheme="http"/>
+                <data android:host="music.apple.com" android:scheme="https"/>
+                <data android:scheme="apple-music"/>
+                <data android:scheme="apple-musics"/>
+                <data android:host="finance-app.itunes.apple.com" android:scheme="apple-music"/>
+                <data android:host="finance-app.itunes.apple.com" android:scheme="apple-musics"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/returnFromEmailVerify" android:scheme="https"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/DirectAction/manageSubscriptions" android:scheme="https"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/com.apple.jingle.app.finance.DirectAction/freeProductCodeWizard" android:scheme="https"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/freeProductCodeWizard" android:scheme="https"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/redeemLandingPage" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.commerce.activities.SonosAppleActivity" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="itunes.apple.com" android:pathPattern="/sonosAuth" android:scheme="music"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.commerce.activities.StorePageActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/genres" android:name="com.apple.android.music.browse.GenreActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.apple.android.music.lyrics.LyricsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.apple.android.music.search.google.VoiceSearchHandlerActivity" android:noHistory="true" android:screenOrientation="behind">
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_SEARCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_notifications" android:name="com.apple.android.music.settings.activity.NotificationsSettingsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.social.activities.SocialWebActivity" android:screenOrientation="behind" android:taskAffinity="social.onboarding" android:theme="@style/CommonDialog"/>
+        <activity android:label="@string/settings" android:name="com.apple.android.music.settings.activity.SettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SettingsStyle"/>
+        <activity android:label="@string/setting_cellular_data" android:name="com.apple.android.music.settings.activity.CellularSettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SettingsStyle"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/settings_content_restrictions" android:name="com.apple.android.music.settings.activity.RestrictionsSettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SettingsStyle"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/user_debug_setting_preference_title" android:name="com.apple.android.music.settings.activity.UserDebugSettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SettingsStyle"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/tune_taste_genres_title_updated" android:name="com.apple.android.music.onboarding.activities.OnboardingActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.commerce.activities.AccountCreationActivity" android:screenOrientation="behind" android:theme="@style/AccountTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/account_title" android:name="com.apple.android.music.settings.activity.AccountSettingsActivity" android:screenOrientation="behind" android:theme="@style/AppTheme.SettingsStyle"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_settings_privacy" android:name="com.apple.android.music.settings.activity.AccountSettingsDiscoverabilityActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_detail_title" android:name="com.apple.android.music.settings.activity.AccountSettingsDetailActivity" android:screenOrientation="behind" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/linked_account" android:name="com.apple.android.music.settings.activity.LinkAccountActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_subscription_title" android:name="com.apple.android.music.settings.activity.AccountSettingsSubscriptionActivity" android:parentActivityName="com.apple.android.music.settings.activity.AccountSettingsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.common.activity.ChoosePictureActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/account_subscription_title" android:name="com.apple.android.music.settings.activity.ManageSubscriptionSettingActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.common.activity.StaticHtmlActivity" android:screenOrientation="behind" android:theme="@style/CommonDialog"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.settings.activity.SettingsDetailWebviewActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.onboarding.activities.FamilyInviteActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.settings.activity.DiagnosticsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.FamilySetupActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.FamilyInfoActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.FamilyMemberDetailsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.AddNewMemberActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.IcloudMemberInviteOptionsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ICloudMemberEnterPasswordActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationStartActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationBirthdayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationParentalDisclosureActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ICloudCVVVerificationActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationNameActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationEmailActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationPasswordActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationQuestionsActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationICloudTermsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationITunesTermsActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.icloud.activities.ChildAccountCreationAskToBuyActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.search.onboard.OnBoardSearchArtistActivity" android:screenOrientation="behind"/>
+        <activity android:name="com.apple.android.music.settings.activity.ManageDownloadedContentActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.apple.android.music.player.VideoFullScreenActivity" android:screenOrientation="unspecified" android:theme="@style/VideoFullScreen"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.equalizer.EQActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.settings.activity.AppPermissionsActivity" android:screenOrientation="behind"/>
+        <activity android:label="" android:name="com.apple.android.music.common.MainContentActivity" android:screenOrientation="behind" android:theme="@style/TranslucentOverlayStatusBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apple.android.music.connect.activity.ReportConcernActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.apple.android.music.sdk.SDKLandingActivity"/>
+        <activity android:name="com.apple.android.music.sdk.ApproveAccessActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.apple.android.music.commerce.activities.ChromeTabsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="buy.itunes.apple.com" android:path="/WebObjects/MZFinance.woa/wa/userSignedPayPalBA*?.*" android:scheme="https"/>
+                <data android:scheme="musics"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.apple.android.music.player.cast.CastOptionsProvider"/>
+        <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/auto_app_description"/>
+        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon" android:resource="@drawable/icn_sb_apple"/>
+        <service android:exported="true" android:name="com.apple.android.music.player.MediaPlaybackService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.apple.android.music.download.controller.DownloadService"/>
+        <service android:exported="false" android:name="com.apple.android.music.settings.services.MediaTransferService"/>
+        <service android:name="com.apple.android.music.icloud.ICloudApiService"/>
+        <service android:name="com.apple.android.music.pushnotifications.controllers.PushNotificationsService" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.apple.android.music.settings.services.DownloadManagerMigrationStepService"/>
+        <receiver android:name="androidx.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:icon="@mipmap/ic_launcher" android:label="@string/app_widget_name_player" android:name="com.apple.android.music.widget.AppleMusicWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.apple.android.music.widget.AppleMusicWidget.PLAYBACK_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
+        </receiver>
+        <receiver android:label="@string/app_widget_name_recently_played" android:name="com.apple.android.music.widget.RecentlyPlayedWidgetProvider">
+            <intent-filter>
+                <action android:name="com.apple.android.music.widget.RecentlyPlayedWidgetProvider.Launch"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_recently_played"/>
+        </receiver>
+        <receiver android:name="com.apple.android.music.common.controllers.UpgradeReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.apple.android.music.pushnotifications.NotificationBroadcastReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.apple.android.music.common.controllers.PartnerInstallReceiver">
+            <intent-filter>
+                <action android:name="com.dti.intent.action.PACKAGE_INSTALLED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.apple.android.music.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider android:authorities="com.apple.android.music.provider.ArtworkProvider" android:exported="true" android:name="com.apple.android.music.provider.ArtworkContentProvider"/>
+        <provider android:authorities="com.apple.android.music.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.apple.android.music.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.apple.android.music.UserInfoContentProvider" android:exported="true" android:name="com.apple.android.storeservices.UserInfoContentProvider" android:permission="com.apple.android.music.UserInfoContentProvider.permission"/>
+        <service android:exported="false" android:label="Reporting Service" android:name="com.apple.android.music.playback.reporting.ReportingService"/>
+        <service android:exported="false" android:label="Reporting Service" android:name="com.apple.android.music.playback.reporting.ReportingServiceApi26" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.apple.android.music.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

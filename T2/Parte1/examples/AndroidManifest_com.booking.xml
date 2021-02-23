@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="com.booking" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <supports-screens android:anyDensity="true" android:largeScreens="false" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.sfr.android.console.permission.partner.READ_STATISTICS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <permission android:name="com.booking.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.booking.permission.RECEIVER" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.booking.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.booking.permission.RECEIVER"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:fullBackupContent="@xml/appsflyer_backup_rules" android:hardwareAccelerated="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:logo="@mipmap/booking_newlogo" android:name="com.booking.BookingApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/Theme.Booking" android:usesCleartextTraffic="true">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDSvuvo_hWSVB5uaasVC9QiOL6jilU-b3s"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false"/>
+        <meta-data android:name="firebase_performance_collection_enabled" android:value="false"/>
+        <provider android:authorities="com.booking.data" android:enabled="true" android:exported="false" android:name="com.booking.db.PostBookingProvider"/>
+        <provider android:authorities="com.booking.ugc.data" android:enabled="true" android:exported="false" android:name="com.booking.ugc.db.UGCDataProvider"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/app_name" android:name="com.booking.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar.DefaultBackground" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.booking.deeplink.scheme.BookingDeeplinkSchemeActivity" android:noHistory="false" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="booking"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:label="@string/menu_about" android:name="com.booking.activity.InformationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_pb_ss_pricing_info_header" android:name="com.booking.postbooking.bookingdetails.pricinginfo.PriceInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/booking_confirmation" android:name="com.booking.postbooking.confirmation.BookingStageConfirmationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/hotel_view_title" android:name="com.booking.property.detail.HotelActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.DefaultBackground"/>
+        <activity android:label="@string/hotel_view_title" android:name="com.booking.property.detail.search.SearchWithinHotelActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden" android:label="" android:name="com.booking.activity.ObsoleteAppActivity" android:theme="@style/Theme.Booking.Translucent.NoActionBarNew"/>
+        <activity android:label="@string/terms_and_conditions" android:name="com.booking.activity.TermsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.booking.activity.MdotBookingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_login_action_bar_title_main_page" android:launchMode="singleTop" android:name="com.booking.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden" android:label="" android:name="com.booking.searchresult.SearchResultsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_modify_booking_title" android:name="com.booking.postbooking.modifybooking.ModifyBookingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/pb_android_change_dates_button" android:name="com.booking.postbooking.changecancel.ChangeDatesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/pb_android_change_dates_button" android:name="com.booking.postbooking.changecancel.ChangeDatesSuggestionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/cancel_booking" android:name="com.booking.postbooking.changecancel.CancelBookingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/cancel_room" android:name="com.booking.postbooking.changecancel.CancelRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/change_guest_details" android:name="com.booking.postbooking.changecancel.ChangeRoomActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/special_requests" android:name="com.booking.postbooking.specialrequests.ui.SendSpecialRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/special_requests" android:name="com.booking.postbooking.specialrequests.ui.SpecialRequestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/special_requests" android:name="com.booking.postbooking.specialrequests.ui.SpecialRequestMealActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.assistant.AssistantWelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AssistantActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.assistant.AssistantActivity" android:screenOrientation="portrait" android:theme="@style/AssistantActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.settings.AdaptiveUserPreferencesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Preference.NoActionBarNew"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.deeplink.decoder.DecoderDeeplinkActivity" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="booking.com"/>
+                <data android:host="booking.cn"/>
+                <data android:pathPrefix="/App-"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="https"/>
+                <data android:host="secure.booking.com"/>
+                <data android:host="secure.booking.cn"/>
+                <data android:pathPrefix="/review/"/>
+                <data android:pathPrefix="/apps"/>
+                <data android:pathPrefix="/app_link/mybooking."/>
+                <data android:pathPrefix="/app_link/myreservations"/>
+                <data android:pathPrefix="/app_link/login."/>
+                <data android:pathPrefix="/mybooking."/>
+                <data android:pathPrefix="/myreferrals"/>
+                <data android:pathPrefix="/free_cancellation_addon"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data android:host="link.sg.booking.com"/>
+                <data android:scheme="https"/>
+                <data android:pathPrefix="/uni"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data android:host="s.sg.booking.com"/>
+                <data android:scheme="https"/>
+                <data android:pathPrefix="/uni"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data android:host="t.spe.booking.com"/>
+                <data android:scheme="https"/>
+                <data android:pathPrefix="/f/uni"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.booking.com"/>
+                <data android:host="www.booking.cn"/>
+                <data android:pathPrefix="/index"/>
+                <data android:pathPrefix="/apps"/>
+                <data android:pathPrefix="/app_link/city/"/>
+                <data android:pathPrefix="/app_link/index."/>
+                <data android:pathPrefix="/app_link/searchresults."/>
+                <data android:pathPrefix="/app_link/hotel/"/>
+                <data android:pathPrefix="/hotel/"/>
+                <data android:pathPrefix="/searchresults."/>
+                <data android:pathPrefix="/landmark"/>
+                <data android:pathPrefix="/dealspage"/>
+                <data android:pathPrefix="/deals/black-friday"/>
+                <data android:pathPrefix="/apartments"/>
+                <data android:pathPrefix="/region"/>
+                <data android:pathPrefix="/guest-house"/>
+                <data android:pathPrefix="/accommodation"/>
+                <data android:pathPrefix="/district"/>
+                <data android:pathPrefix="/hostels"/>
+                <data android:pathPrefix="/motels"/>
+                <data android:pathPrefix="/bed-and-breakfast"/>
+                <data android:pathPrefix="/country"/>
+                <data android:pathPrefix="/city/"/>
+                <data android:pathPrefix="/airport"/>
+                <data android:pathPrefix="/s/"/>
+                <data android:pathPrefix="/chinacampaign"/>
+                <data android:pathPrefix="/deals-special-offers"/>
+                <data android:pathPrefix="/best-price-guarantee"/>
+                <data android:pathPrefix="/book-now-pay-later"/>
+                <data android:pathPrefix="/free-cancellation"/>
+                <data android:pathPrefix="/get-instant-confirmation"/>
+                <data android:pathPrefix="/no-booking-fees"/>
+                <data android:pathPrefix="/secure-booking"/>
+                <data android:pathPrefix="/we-speak-your-language"/>
+                <data android:pathPrefix="/aparthotels"/>
+                <data android:pathPrefix="/homestay"/>
+                <data android:pathPrefix="/lodges"/>
+                <data android:pathPrefix="/campings"/>
+                <data android:pathPrefix="/country-houses"/>
+                <data android:pathPrefix="/love-hotel"/>
+                <data android:pathPrefix="/villas"/>
+                <data android:pathPrefix="/boats"/>
+                <data android:pathPrefix="/riad"/>
+                <data android:pathPrefix="/ryokans"/>
+                <data android:pathPrefix="/capsule-hotel"/>
+                <data android:pathPrefix="/cottages"/>
+                <data android:pathPrefix="/holiday-parks"/>
+                <data android:pathPattern="/c360/.*/redir"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.AssistantShortcutDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:host="secure.booking.com" android:pathPrefix="/assistant" android:scheme="https"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.TaxisDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:host="taxi.booking.com" android:pathPattern="..*/promotions/free-taxi/..*" android:scheme="https"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.RewardsDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:host="secure.booking.com" android:pathPrefix="/rewardshub" android:scheme="https"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.FlightsDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:host="flights.booking.com"/>
+                <data android:scheme="https"/>
+                <data android:pathPrefix="/flights/"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.FlightsOrderDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:host="flights.booking.com"/>
+                <data android:scheme="https"/>
+                <data android:pathPrefix="/booking/order-details/"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="false" android:name="com.booking.deeplink.decoder.InnsDeeplinkActivityDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.booking.com"/>
+                <data android:host="www.booking.cn"/>
+                <data android:pathPrefix="/inns"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="false" android:name="com.booking.deeplink.decoder.BudgetHotelDeeplinkActivity" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.booking.com"/>
+                <data android:host="www.booking.cn"/>
+                <data android:pathPrefix="/budget"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="false" android:name="com.booking.deeplink.decoder.PaymentRedirectDeeplinkDecoderActivity" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="secure.booking.com"/>
+                <data android:pathPrefix="/payment_redirect.html"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.deeplink.decoder.ShareLinkDecoderActivity" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="*.booking.com"/>
+                <data android:host="*.booking.cn"/>
+                <data android:host="booking.com"/>
+                <data android:host="booking.cn"/>
+                <data android:pathPrefix="/Share-"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="false" android:name="com.booking.deeplink.decoder.GeniusLandingDeeplinkDecoder" android:noHistory="true" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter android:autoVerify="true">
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.booking.com"/>
+                <data android:pathPrefix="/genius"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.activity.PrivacyAndCookiesActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/fb_login_protocol_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="false"/>
+        <activity android:name="com.booking.china.webview.ChinaCampaignWebViewActivity" android:theme="@style/Theme.Booking"/>
+        <activity android:name="com.booking.china.webview.BookingDeeplinkActionWebViewActivity" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.notification.ui.NotificationCenterDialogActivity" android:theme="@style/BookingDialogActivity"/>
+        <activity android:name="com.booking.commonui.activity.SingleFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/notification_center_header_text" android:name="com.booking.notification.ui.NotificationCenterActivity"/>
+        <activity android:name="com.booking.web.WebViewStaticOfflineActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.ugc.UgcWebviewStaticOfflineActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.postbooking.mybookings.ManageCarRentalWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="" android:name="com.booking.activity.DisambiguationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.activity.PhotoGalleryActivity" android:theme="@style/Theme.Booking.TransparentToolbarActivity"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_feedback_screen_title" android:name="com.booking.ui.feedback.AppFeedbackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.ui.feedback.AppFeedbackOverlayActivity" android:theme="@style/Theme.Booking.Translucent.NoActionBarNew" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/booking_confirmation" android:name="com.booking.postbooking.confirmation.ConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.WhiteBlueTabs">
+            <intent-filter>
+                <action android:name="com.booking.actions.UPDATE_CREDIT_CARD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_bh_pb_checkin_instruc_not_ready_subj" android:name="com.booking.postbooking.confirmation.CheckinInstructionsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.WhiteBlueTabs"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_third_your_reservation_header" android:name="com.booking.tpi.postbooking.TPIReservationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_rooms_details" android:name="com.booking.postbooking.confirmation.activities.RoomsDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_hotel_facilities" android:name="com.booking.postbooking.bookingdetails.HotelFacilitiesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.ugc.reviewform.ReviewPreviewActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.booking.ugc.instayratings.InstayUploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.ugc.photoupload.PhotoUploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:name="com.booking.postbooking.bookingdetails.PaymentDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.postbooking.bookingdetails.PoliciesDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.postbooking.bookingdetails.FinePrintDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.deals.page.DealsPageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.activity.PushNotificationSplashActivity" android:noHistory="true" android:theme="@style/Theme.Booking.Splash"/>
+        <activity android:name="com.booking.postbooking.mybookings.ImportBookingActivity" android:theme="@style/BookingDialogActivity"/>
+        <activity android:name="com.booking.sharing.ExtravagantShareActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Share.Extravagant" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.booking.sharing.MinimalistShareActivity" android:theme="@style/Theme.Booking.Share.Minimalist"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"/>
+        <receiver android:exported="false" android:name="com.booking.incentives.push.IncentivesPushNotificationClickReceiver"/>
+        <receiver android:exported="false" android:name="com.booking.util.PersistentNotificationHelper$BodyClick"/>
+        <receiver android:exported="false" android:name="com.booking.util.PersistentNotificationHelper$CallButtonClick"/>
+        <receiver android:exported="false" android:name="com.booking.util.PersistentNotificationHelper$MapLocationButtonClick"/>
+        <receiver android:exported="false" android:name="com.booking.service.alarm.AlarmPendingTaskBroadcastReceiver"/>
+        <receiver android:name="com.booking.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.booking.notification.NotificationAppBlockStateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.app.action.APP_BLOCK_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.booking.notification.NotificationAppBlockStateChangedReceiver$Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.booking.notification.NotificationChannelBlockStateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.app.action.NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED"/>
+                <action android:name="android.app.action.NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.booking.notification.NotificationChannelBlockStateChangedReceiver$Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.HotelInfoService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.InitService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.UpdateAppService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.EraseMyBookingsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.notification.push.PushNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.CloudSyncJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.squeaks.LoggingJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.HotelDownloadService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.FileUploadService"/>
+        <service android:exported="false" android:name="com.booking.service.AlarmPendingTaskService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.BootService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.ugc.instayratings.notification.InStayRatingsNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.service.LoggedOutAbandonedBookingNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.booking.abandonedbooking.LoggedOutAbandonedBookingNotificationScheduler$AlarmBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.booking.service.RecentHotelNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.booking.service.RecentHotelNotificationService$AlarmBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.booking.recenthotel.retargeting.RetargetingRecentHotelNotificationService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.booking.recenthotel.retargeting.RetargetingRecentHotelNotificationScheduler$AlarmBroadcastReceiver"/>
+        <service android:exported="false" android:name="com.booking.service.GaDispatchingJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.booking.manager.notification.BookingNotificationLocaleChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.booking.manager.notification.BookingNotificationLocaleChangeReceiver$Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.booking.monitoring.ApplicationSizeKPIService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_pb_acounts_page_title_your_details" android:name="com.booking.profile.EditProfileActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.profile.china.activity.VerifyPhoneNumberActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <provider android:authorities="com.booking.common.files" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:exported="false" android:name="com.booking.apptivate.util.SqueakTrackNotificationDismissReceiver"/>
+        <receiver android:exported="false" android:name="com.booking.recenthotel.RecentHotelNotificationDismissReceiver"/>
+        <receiver android:exported="false" android:name="com.booking.recenthotel.DisableRecentHotelActionClickReceiver"/>
+        <activity android:name="com.booking.profile.deeplink.EmailConfirmDeeplinkActivity" android:theme="@style/BookingDialogActivity"/>
+        <activity android:label="@string/android_deeplink_pw_reset_menu_bar" android:name="com.booking.profile.deeplink.ResetPasswordDeeplinkActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:exported="false" android:label="@string/android_accounts_dashboard_header" android:name="com.booking.profile.presentation.UserDashboardActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.profile.china.activity.ChinaLoyaltyWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.communities.CommunitiesWebView" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_bhro_list_your_property" android:name="com.booking.selfbuild.DownloadPulseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.postbooking.overcharged.OverChargedRequestActivity" android:theme="@style/Theme.Booking.Dialog.Alert"/>
+        <activity android:exported="true" android:name="com.booking.login.WXEntryActivity"/>
+        <activity-alias android:exported="true" android:name="com.booking.dev.wxapi.WXEntryActivity" android:targetActivity="com.booking.login.WXEntryActivity"/>
+        <activity-alias android:exported="true" android:name="com.booking.dev.wxapi.WXPayEntryActivity" android:targetActivity="com.booking.login.WXEntryActivity"/>
+        <activity-alias android:exported="true" android:name="com.booking.wxapi.WXPayEntryActivity" android:targetActivity="com.booking.login.WXEntryActivity"/>
+        <activity-alias android:exported="true" android:name="com.booking.wxapi.WXEntryActivity" android:targetActivity="com.booking.login.WXEntryActivity"/>
+        <activity android:name="com.booking.articles.ArticlesWebActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:label="@string/app_name" android:name="com.booking.startup.HomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.SplashWithLogo">
+            <intent-filter>
+                <category android:name="miui.intent.category.SYSAPP_RECOMMEND"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/android_submit_arrival_time_activity_title" android:name="com.booking.postbooking.changecancel.ChangeArrivalTimeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_forward_confirmation_title" android:name="com.booking.postbooking.confirmation.activities.ForwardConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.WhiteBlueTabs" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_pb_price_overcharge_header" android:name="com.booking.postbooking.overcharged.OverchargedComponentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_bh_your_host" android:name="com.booking.bookinghome.activity.HostProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/android_credit_cards" android:name="com.booking.rewards.cc_selection.RewardsAndWalletCcActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.postbooking.changecancel.RoomUpgradeWebView" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_gift_cards_menu_entrypoint" android:name="com.booking.giftcards.GiftCardRedemptionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoDropShadow"/>
+        <activity android:name="com.booking.profile.china.activity.coupon.PopupCouponActivity" android:theme="@style/BookingDialogActivity"/>
+        <activity android:name="com.booking.china.coupon.CouponSelectorActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:name="com.booking.ugc.reviewform.ReviewFormActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_payment_complete_payment" android:name="com.booking.postbooking.confirmation.paylaterviabooking.PayNowViaBookingWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_cookie_constent_manage_settings" android:name="com.booking.marketingpresentation.legal.CaliforniaPrivacySettingsActivity" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.faq.presentation.CovidFaqWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_app_marketing_sidebar_menu_lists_wish" android:name="com.booking.wishlist.ui.activity.WishListsItemsFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.wishlist.ui.activity.WishlistDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_wl_create_page_title" android:name="com.booking.wishlist.ui.activity.WishlistCreationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.booking.wishlist.ui.activity.WishListMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/hotel_reviews_title" android:name="com.booking.activity.ReviewsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.reviews.instay.InStayRatingsActivity" android:theme="@style/Theme.Booking.TransparentToolbarActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.gallery.HotelPicturesActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.gallery.PropertyGalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.gallery.review.GalleryReviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.property.detail.facilityhighlights.FacilityHighlightsDetailsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.FacilityHighlights"/>
+        <activity android:label="" android:launchMode="singleTop" android:name="com.booking.bookingProcess.activity.BookingStage1Activity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoWindowPreview" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="bookingpayin"/>
+                <data android:host="payin"/>
+                <data android:pathPrefix="/accommodation"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.bookingProcess.activity.BookingStageProcessActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/android_empty" android:name="com.booking.bookingProcess.activity.BpPropertyMapViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/android_billing_address_screen_title" android:name="com.booking.bookingProcess.payment.payment3DS2.activity.BillingAddressActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:exported="false" android:label="@string/android_preference_feedback_header" android:name="com.booking.bookingProcess.roompreferencesurvey.BpRoomPreferenceSurveyActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/room_view_title" android:name="com.booking.room.detail.RoomActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/availability_view_title" android:name="com.booking.room.list.RoomListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.room.mpref.RoomPreferenceActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/room_view_title" android:name="com.booking.tpi.roompage.marken.TPIMarkenRoomPageActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="true" android:label="@string/android_tpi_bp_page_title_complete_booking" android:launchMode="singleTop" android:name="com.booking.tpi.bookprocess.marken.TPIBookProcessActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar.WindowDisablePreview" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tpi"/>
+                <data android:host="booking"/>
+                <data android:pathPrefix="/payin"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_cs_cta_cancel" android:name="com.booking.tpi.postbooking.TPICancellationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:label="@string/android_tpi_upsell_pay_compare_screen_title" android:name="com.booking.tpi.bookprocess.marken.upsell.TPIUpSellActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.couponpresentation.couponPage.MyCouponPageActivity" android:screenOrientation="portrait" android:theme="@style/MyCouponPageTheme"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/contact_us_app" android:name="com.booking.postbooking.customerservice.activity.CustomerServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:exported="false" android:label="@string/call_us_anytime" android:name="com.booking.postbooking.customerservice.activity.CustomerServiceCallUsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:exported="false" android:label="@string/worldwide_local_numbers" android:name="com.booking.postbooking.customerservice.activity.CustomerServiceWorldwideActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_cookie_constent_manage_settings" android:name="com.booking.marketingpresentation.gdpr.GdprSettingsActivity" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.marketingpresentation.gdpr.marken.GDPRConsentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.marketingpresentation.gdpr.marken.GDPRCategorySDKListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.dynamiclanding.DynamicLandingActivity"/>
+        <activity android:name="com.booking.themelanding.presentation.ThemedLandingActivity" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.filters.ui.ServerFilterActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/hotel_view_title" android:name="com.booking.property.map.HotelMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/hotel_view_title" android:name="com.booking.property.mapboxjs.HotelMapBoxJsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/android_profile_bind_phone_title" android:name="com.booking.profile.china.activity.BindPhoneActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.booking.activity.InformationPanelActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.booking.flightspostbooking.FlightsPostBookingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="flights"/>
+                <data android:host="post-book"/>
+                <data android:pathPrefix="/payment-status"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.assistant.ui.NotificationResolverActivity"/>
+        <service android:name="com.booking.notifications.carrier.FcmNotificationCarrier">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.booking.notification.track.PushNotificationStatusChangedService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.notification.settings.UploadPushSettings" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.notification.handlers.GetPushBody" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.booking.apptivate.util.DeleteNotificationReceiver"/>
+        <service android:exported="false" android:name="com.booking.apptivate.util.DeleteNotificationReceiver$Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.booking.notification.SystemNotificationClickReceiver"/>
+        <service android:exported="false" android:name="com.booking.notification.SystemNotificationClickReceiver$Service" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.booking.notification.push.HandlePushWhenNetworkAvailable" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:label="@string/android_sidebar_menu_bookings" android:name="com.booking.trippresentation.activity.MyBookingsFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:label="@string/android_pb_your_history" android:name="com.booking.trippresentation.activity.PastOrCancelledBookingsFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:label="" android:name="com.booking.bookingGo.web.RentalCarsWebActivityLite" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:label="" android:name="com.booking.bookingGo.search.RentalCarsSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.search.RentalCarsLocationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.results.RentalCarsResultsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.results.marken.CarsSearchResultsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.results.RentalCarsFiltersActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Material"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.details.RentalCarsTermsAndConditionsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.driverdetails.DriverDetailsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.payment.PaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.confirmation.BookingConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.confirmregion.ConfirmUsersRegionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.launch.impl.CarRentalsLaunchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.details.supplierinfo.ui.SupplierInfoTabActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.details.terms.TermsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.prescreen.PreScreenExtraDetailsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.autocomplete.AutoCompleteLocationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.bookingsummary.BookingSummaryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.web.HybridFunnelWebActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.BCarsMarkenActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="false" android:name="com.booking.bookingGo.confirmation.marken.BCarsConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:launchMode="singleTop" android:name="com.booking.flights.FlightsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="flights"/>
+                <data android:host="book"/>
+                <data android:pathPrefix="/payment-status"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name="com.booking.marketplacewebviewcomponents.webcontainer.MarketplaceWebView" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.booking.flights.components.web.FlightsWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name="com.booking.flights.components.web.PDFWebView" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.booking.genius.presentation.landing.GeniusLandingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar.WhiteBackground"/>
+        <activity android:exported="false" android:name="com.booking.genius.presentation.landing.LegacyGeniusLandingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar.WhiteBackground"/>
+        <activity android:name="com.booking.genius.presentation.appCredits.AppCreditsLandingActivity" android:theme="@style/Theme.Basic.Booking.DarkActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_rewards_wallet_entry" android:name="com.booking.rewards.tabbed_dashboard.RewardsTabbedDashboardActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Rewards"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_rewards_wallet_activity_title" android:name="com.booking.rewards.rewards_list.RewardsListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Rewards"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_rewards_wallet_activity_title_wallet" android:name="com.booking.rewards.wallet_transactions_list.WalletTransactionListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Rewards"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_rewards_wallet_reward_title" android:name="com.booking.rewards.reward_details.RewardDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.booking.rewards.onboarding.RewardsOnboardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:label="@string/android_rewards_header" android:name="com.booking.rewards.wallet_payout.WalletOrCcPayoutActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_rewards_wallet_withdraw_action_title" android:name="com.booking.rewards.walletCashOut.WalletCashoutActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/android_rewards_wallet_credit_title" android:name="com.booking.rewards.walletTransactionDetails.WalletTransactionActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:label="@string/android_rewards_wallet_help_cta" android:name="com.booking.rewards.faq.RewardsFaqActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Material"/>
+        <activity android:label="" android:name="com.booking.payment.methods.selection.screen.PaymentMethodsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="" android:name="com.booking.payment.methods.selection.screen.combined.CombinedPaymentMethodActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/android_payment_complete_payment" android:launchMode="singleInstance" android:name="com.booking.payment.hpp.PaymentWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
+        <activity android:label="@string/pay_screen_title_payment" android:launchMode="singleTop" android:name="com.booking.android.payment.payin.standalone.StandaloneActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="bookingpayments"/>
+                <data android:host="standalone"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/pay_screen_title_payment" android:name="com.booking.android.payment.payin.standalone.WebViewStandaloneActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.booking.amazon.presentation.AmazonLandingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.amazon.components.login.AmazonAuthWebActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <activity android:name="com.booking.publictransportpresentation.PTransportBookingDetailsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:label="@string/android_bh_guest_experience_confirmation_mdot_link" android:name="com.booking.guestsafety.ui.GuestSafetyWebActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/apps_bh_guest_safety_confirmation_emergency_services_entry_point" android:name="com.booking.guestsafety.ui.EmergencyServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_bh_guest_safety_flag_safety_concern_modal_header" android:name="com.booking.guestsafety.ui.incident.FlagSafetyConcernActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.appengagement.tripessentialspage.activity.TripEssentialsActivity" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.booking.qnacomponents.QnAQuestionFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.booking.qnacomponents.QnAShowAllFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.qnacomponents.QnADeeplinkFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.qnacomponents.QnAMyQuestionsLandingFacetActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:exported="true" android:name="com.booking.taxispresentation.TaxisSingleFunnelActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="Free activity" android:name="com.booking.taxispresentation.marken.TaxiActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:label="WebView Activity" android:name="com.booking.taxispresentation.ui.staticpages.StaticPagesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.walletcredit.WalletCreditLandingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.geniuscreditcomponents.activities.GeniusCreditLandingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.families.components.themeparks.ThemeParkActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Theme.Park"/>
+        <activity android:name="com.booking.bookingdetailscomponents.demo.TripManagementComponentsDemoMarkenActivity" android:theme="@style/Theme.Booking.Light.NoActionBar"/>
+        <activity android:name="com.booking.helpcenter.ui.HCActivity" android:theme="@style/Theme.Booking.HelpCenter"/>
+        <activity android:name="com.booking.helpcenter.ui.HCMarkenActivity" android:theme="@style/Theme.Booking.HelpCenter.NoActionBar"/>
+        <activity android:name="com.booking.marketingrewardscomponents.MarketingRewardsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Material"/>
+        <activity android:name="com.booking.marketingrewardscomponents.MarketingBackToTravelActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Material"/>
+        <activity android:name="com.booking.ugccontentaccuracysurvey.surveypage.ContentSurveyPageActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:name="com.booking.ugccontentaccuracysurvey.confirmationpage.ReviewConfirmationActivity" android:theme="@style/Theme.Booking.NoActionBar"/>
+        <activity android:label="@string/label_explain_the_price" android:name="com.booking.common.ui.activity.ExplainPriceDetailsActivity"/>
+        <activity android:name="com.booking.survey.gizmo.GizmoWebViewActivity"/>
+        <activity android:label="@string/android_survey_gizmo_header" android:name="com.booking.survey.entrypoints.SurveyGizmoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/android_survey_gizmo_header" android:name="com.booking.survey.entrypoints.SurveyGizmoModalActivity" android:theme="@style/Theme.Booking.Dialog"/>
+        <activity android:label="@string/android_dma_cancellation_survey_header" android:name="com.booking.survey.cancellation.SurveyActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking.Cancellation.Survey" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.booking.feature.jira.CreateJIRATicketActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Basic.Booking"/>
+        <activity android:exported="true" android:label="@string/android_online_checkin_landing_toolbar_title" android:name="com.booking.connectedstay.OnlineCheckinLandingActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="https"/>
+                <data android:host="secure.booking.com"/>
+                <data android:pathPrefix="/checkin.html"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/android_online_checkin_form_toolbar_title" android:name="com.booking.connectedstay.OnlineCheckinFormActivity"/>
+        <activity android:label="@string/android_online_checkin_result_toolbar_title" android:name="com.booking.connectedstay.OnlineCheckinResultActivity"/>
+        <activity android:label="@string/android_online_checkin_pass_toolbar_title" android:name="com.booking.connectedstay.OnlineCheckinPassActivity"/>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="com.booking.identity.guest.AuthGuestActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="account.booking.com" android:pathPrefix="/applink/booking" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="net.openid.appauth.RedirectUriReceiverActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="facebookCallback" android:scheme="idp1"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="amazonCallback" android:scheme="idp1"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.booking.commonui.web.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.booking.commonui.web.BookingDeeplinkWebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Booking"/>
+        <provider android:authorities="com.booking.startuptime" android:enabled="true" android:exported="false" android:initOrder="9999" android:name="com.booking.performance.startup.AppStartTimeProvider"/>
+        <service android:exported="false" android:name="com.booking.exp.ExpsLogVisitorsService"/>
+        <service android:exported="false" android:name="com.booking.exp.ExpSyncJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:label="@string/paycom_new_card_flow_title" android:name="com.booking.payment.component.ui.screen.creditcard.newcard.NewCreditCardActivity" android:theme="@style/PaymentSdkTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/paycom_screen_header_update_your_card" android:name="com.booking.payment.component.ui.screen.creditcard.billingaddress.CreditCardBillingAddressActivity" android:theme="@style/PaymentSdkTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/paycom_method_screen_header" android:name="com.booking.payment.component.ui.screen.methods.PaymentMethodsActivity" android:theme="@style/PaymentSdkTheme"/>
+        <activity android:name="com.booking.payment.component.ui.screen.web.PaymentWebViewActivity" android:theme="@style/PaymentSdkTheme"/>
+        <activity android:name="com.booking.payment.component.ui.navigation.ResultHandlerActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:exported="true" android:name="com.booking.payment.component.core.directintegration.wechat.WeChatResultActivity"/>
+        <activity android:name="com.booking.payment.component.core.directintegration.googlepay.GooglePayHostActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name="com.booking.payment.component.core.directintegration.paypal.PayPalHostActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="com.booking.braintree"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.perimeterx.msdk.internal.enforcers.BlockActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.perimeterx.msdk.internal.enforcers.CaptchaActivity"/>
+        <provider android:authorities="com.booking.firebaseperfprovider" android:exported="false" android:initOrder="101" android:name="com.google.firebase.perf.provider.FirebasePerfProvider"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity android:exported="false" android:hardwareAccelerated="true" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteThemeOverlay" android:windowSoftInputMode="stateAlwaysVisible|adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.adyen.threeds2.internal.ui.activity.ChallengeActivity" android:theme="@style/ThreeDS2Theme.Internal" android:windowSoftInputMode="stateHidden"/>
+        <receiver android:name="com.adyen.threeds2.internal.AppUpgradeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService"/>
+        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity"/>
+        <provider android:authorities="com.booking.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.booking"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.booking.MarketingInitProvider" android:exported="false" android:name="com.facebook.marketing.internal.MarketingInitProvider"/>
+        <provider android:authorities="com.booking.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.adyen.checkout.base.analytics.AnalyticsDispatcher" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.booking.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:launchMode="singleTask" android:name="net.openid.appauth.AuthorizationManagementActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="com.booking.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+        <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+        <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.alipay.sdk.app.H5AuthActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="true" android:launchMode="singleInstance" android:name="com.alipay.sdk.app.PayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="com.alipay.sdk.app.AlipayResultActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.braintreepayments.api.GooglePaymentActivity" android:theme="@style/bt_transparent_activity"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>

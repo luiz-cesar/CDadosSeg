@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="bbc.mobile.news.uk" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:smallScreens="true"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="@xml/appsflyer_backup_rules" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:logo="@drawable/bbc_logo" android:name="bbc.mobile.news.v3.app.BBCNewsApp" android:networkSecurityConfig="@xml/network_security_config" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="@string/use_rtl_locale" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="uk.co.bbc.chrysalis.discovery.ui.DiscoveryActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Discovery">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="istats.apps.mobile.bbc.istats.StatsTracker$StatsActivity" android:parentActivityName="bbc.mobile.news.v3.ui.preference.SettingsActivity" android:theme="@style/AppTheme"/>
+        <activity android:name="bbc.mobile.news.v3.ui.web.WebViewActivity" android:theme="@style/AppTheme.NoActionBar.White"/>
+        <activity android:name="bbc.mobile.news.v3.fragments.managetopics.EditMyNewsActivity"/>
+        <activity android:name="bbc.mobile.news.v3.ui.splash.SplashActivity" android:theme="@style/AppTheme.NoActionBar.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="bbc.mobile.news.v3.app.TopLevelActivity" android:theme="@style/AppTheme.NoActionBar.Launcher"/>
+        <activity android:name="bbc.mobile.news.v3.ui.deeplinking.DeepLinkingActivity" android:parentActivityName="bbc.mobile.news.v3.app.TopLevelActivity" android:theme="@style/AppTheme.NoActionBar.Translucent">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".app.TopLevelActivity"/>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.bbc.co.uk" android:pathPrefix="/news"/>
+                <data android:host="www.bbc.com" android:pathPrefix="/news"/>
+                <data android:host="www.bbc.co.uk" android:pathPrefix="/things/"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="bbc.mobile.news.v3.ui.search.SearchActivity" android:parentActivityName="bbc.mobile.news.v3.app.TopLevelActivity" android:theme="@style/AppTheme.NoActionBar.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".app.TopLevelActivity"/>
+        </activity>
+        <activity android:name="bbc.mobile.news.v3.ui.preference.SettingsActivity" android:theme="@style/AppTheme.NoActionBar.White">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.settings.ACCOUNT_SYNC_SETTINGS"/>
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="uk.co.bbc.news.pushui.LegacyNotificationSettingsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar.White"/>
+        <activity android:name="bbc.mobile.news.v3.app.SubMenuSettingsActivity" android:theme="@style/AppTheme.NoActionBar.White"/>
+        <activity android:name="bbc.mobile.news.v3.app.ItemActivity" android:theme="@style/AppTheme.ItemActivity"/>
+        <activity android:name="bbc.mobile.news.v3.app.PictureGalleryGridActivity"/>
+        <activity android:name="bbc.mobile.news.v3.ui.newstream.NewstreamActivity"/>
+        <activity android:name="bbc.mobile.news.v3.app.WidgetConfigureActivity"/>
+        <activity-alias android:name="bbc.mobile.news.v3.app.HeadlineWidgetConfigurationActivity" android:targetActivity="bbc.mobile.news.v3.app.WidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name="bbc.mobile.news.v3.app.GridWidgetConfigurationActivity" android:targetActivity="bbc.mobile.news.v3.app.WidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity-alias>
+        <provider android:authorities="@string/content_authority" android:enabled="true" android:exported="true" android:name="bbc.mobile.news.v3.provider.Provider" android:syncable="true"/>
+        <service android:name="bbc.mobile.news.v3.provider.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:description="@string/sync_service_desc" android:exported="true" android:label="@string/sync_service_name" android:name="bbc.mobile.news.v3.provider.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/syncadapter"/>
+        </service>
+        <service android:exported="false" android:name="bbc.mobile.news.v3.provider.SyncEventService"/>
+        <service android:exported="false" android:name="bbc.mobile.news.v3.appwidget.HeadlineWidgetService"/>
+        <receiver android:label="@string/headlinewidget_name" android:name="bbc.mobile.news.v3.appwidget.HeadlineViewWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/headline_appwidget_provider"/>
+        </receiver>
+        <receiver android:label="@string/gridwidget_name" android:name="bbc.mobile.news.v3.appwidget.GridViewWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="bbc.mobile.news.v3.appwidget.GridViewWidgetProvider.itemClicked"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/gridview_appwidget_provider"/>
+        </receiver>
+        <service android:exported="false" android:name="bbc.mobile.news.v3.appwidget.GridWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:name="bbc.mobile.news.v3.ui.index.NewsIndexActivity" android:theme="@style/BaseIndexStyle"/>
+        <activity android:name="bbc.mobile.news.v3.ui.collection.CollectionPagerActivity"/>
+        <activity android:name="uk.co.bbc.rubik.articleui.FullScreenGalleryActivity" android:theme="@style/FullscreenGalleryTheme"/>
+        <activity android:name="uk.co.bbc.rubik.articleui.SingleItemArticleActivity"/>
+        <activity android:name="uk.co.bbc.rubik.articleui.MultiItemArticleActivity"/>
+        <activity android:name="uk.co.bbc.rubik.indexui.IndexActivity"/>
+        <activity android:name="uk.co.bbc.rubik.videowall.ui.VideoWallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="uk.co.bbc.chrysalis.article.ui.ArticleActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Article"/>
+        <activity android:launchMode="singleTask" android:name="uk.co.bbc.deeplink.ui.DeepLinkActivity" android:theme="@style/BBCNews.Chrysalis.Deeplink"/>
+        <activity android:name="uk.co.bbc.chrysalis.onboarding.ui.OnboardingActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Onboarding"/>
+        <activity android:name="uk.co.bbc.chrysalis.gallery.ui.GalleryActivity" android:theme="@style/BBCNews.Chrysalis.Gallery"/>
+        <activity android:name="uk.co.bbc.chrysalis.index.ui.IndexActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Index"/>
+        <activity android:launchMode="singleTop" android:name="uk.co.bbc.chrysalis.search.ui.SearchActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Search">
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="uk.co.bbc.chrysalis.settings.ui.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Settings"/>
+        <activity android:name="uk.co.bbc.chrysalis.settings.ui.CreditsActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.Settings"/>
+        <activity android:name="uk.co.bbc.chrysalis.webbrowser.ui.WebBrowserActivity" android:theme="@style/BBCNews.Chrysalis.WebBrowser"/>
+        <activity android:name="uk.co.bbc.chrysalis.videowall.ui.ChrysalisVideoWallActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.ChrysalisVideoWall"/>
+        <activity android:name="uk.co.bbc.chrysalis.verticalvideo.ui.VerticalVideoActivity" android:screenOrientation="portrait" android:theme="@style/BBCNews.Chrysalis.VerticalVideo"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:exported="false" android:name="uk.co.bbc.rubik.medianotification.service.MediaNotificationService"/>
+        <activity android:name="uk.co.bbc.rubik.medianotification.ui.MediaNotificationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="uk.co.bbc.smpan.audio.notification.androidNotificationSystem.AudioNotificationService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:name="uk.co.bbc.smpan.ui.fullscreen.FullScreenPlayoutActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:theme="@style/FullscreenTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:name="uk.co.bbc.iDAuth.authorisationUi.AuthorisationActivity" android:theme="@style/authtoolkit_AppTheme"/>
+        <receiver android:enabled="true" android:exported="false" android:name="uk.co.bbc.news.push.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="uk.co.bbc.news.push.PUSH_RECEIVED"/>
+                <action android:name="uk.co.bbc.news.push.PUSH_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.SingleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:directBootAware="false" android:exported="@bool/enable_gcm_scheduler_default" android:name="androidx.work.impl.background.gcm.WorkManagerGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseConfigKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="bbc.mobile.news.uk.crashreporting" android:exported="false" android:initOrder="1000000" android:name="bbc.mobile.news.v3.crashreporting.AppCenterInitialiser" android:syncable="false"/>
+        <service android:name="com.urbanairship.push.fcm.AirshipFirebaseMessagingService">
+            <intent-filter android:priority="-1">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.urbanairship.iam.html.HtmlActivity" android:theme="@style/UrbanAirship.InAppHtml.Activity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.iam.fullscreen.FullScreenActivity" android:theme="@style/UrbanAirship.InAppFullscreen.Activity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.iam.modal.ModalActivity" android:theme="@style/UrbanAirship.InAppModal.Activity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.push.NotificationProxyActivity" android:taskAffinity="com.urbanairship.push.NotificationProxyActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:exported="false" android:name="com.urbanairship.messagecenter.MessageActivity"/>
+        <activity android:exported="false" android:label="@string/ua_message_center_title" android:name="com.urbanairship.messagecenter.MessageCenterActivity"/>
+        <activity android:exported="false" android:name="com.urbanairship.util.HelperActivity" android:theme="@style/UrbanAirship.HelperActivity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.google.PlayServicesErrorActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.actions.RateAppActivity" android:theme="@style/UrbanAirship.RateAppActivity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+            <intent-filter>
+                <action android:name="com.urbanairship.actions.SHOW_RATE_APP_INTENT_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.urbanairship.ChannelCaptureActivity">
+            <meta-data android:name="com.urbanairship.push.iam.EXCLUDE_FROM_AUTO_SHOW" android:value="true"/>
+        </activity>
+        <service android:name="com.urbanairship.job.AirshipService"/>
+        <receiver android:exported="false" android:name="com.urbanairship.location.LocationReceiver"/>
+        <service android:name="com.urbanairship.job.AndroidJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.urbanairship.push.NotificationProxyReceiver">
+            <intent-filter android:priority="-999">
+                <action android:name="com.urbanairship.push.OPENED"/>
+                <category android:name="bbc.mobile.news.uk"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.urbanairship.locale.LocaleChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="bbc.mobile.news.uk.urbanairship.provider" android:exported="false" android:name="com.urbanairship.UrbanAirshipProvider"/>
+        <provider android:authorities="bbc.mobile.news.uk.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="bbc.mobile.news.uk.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
